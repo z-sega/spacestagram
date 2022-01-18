@@ -15,10 +15,8 @@ function App() {
 		fetch(`https://api.nasa.gov/planetary/apod?count=${count}&api_key=${process.env.REACT_APP_NASA_API_KEY}`)
 		.then((response) => response.json())
 		.then((data) => setApods([...data]))
-		.then(setisLoadingApods(false));
+		.then(setisLoadingApods(false))
 	}, []);
-
-	console.log(apods);
 
 	const apodsList = apods
 	.map(apod => (
@@ -28,6 +26,7 @@ function App() {
 				title={apod.title}
 				src={apod.url}
 				description={apod.explanation}
+				date={apod.date}
 			/>
 		)
 	);
@@ -47,8 +46,10 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1>Spacestagram!</h1>
-			<p>Brought to you by NASA's image API.</p> 
+			<div className='header'>
+				<h1>Spacestagram!</h1>
+				<p>Brought to you by NASA's image API.</p> 
+			</div>
 			{isLoadingApods ? loadingContent : loadedContent};
 		</div>
 	);
