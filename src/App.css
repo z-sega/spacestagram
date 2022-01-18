@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background-color: rgb(235, 235, 235);
 }
 
 .App-logo {
@@ -36,4 +35,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+/* Overall Styling */
+.App * {
+  border: 2px dashed red;
+}
+
+/* Main Header Styling */
+.App h1 {
+  font-family: 'San Fransisco';
+}
+
+/* Main Content Styling */
+.main-content {
+  /* border: 5px dashed blue; */
+  /* text-align: left; */
+  /* display: grid;
+  justify-content: center;
+  align-content: center; */
+
+  display: flex;
+  flex-wrap: wrap;
 }

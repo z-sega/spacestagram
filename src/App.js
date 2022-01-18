@@ -1,18 +1,55 @@
-import logo from './logo.svg';
 import './App.css';
-import MainTitle from './components/MainTitle'
-import ContentTile from './components/ContentTile'
+import React, { useState, useEffect } from 'react';
+import ContentTile from './components/ContentTile';
+import { nanoid } from 'nanoid';
 
 function App() {
+
+	const [apods, setApods] = useState([]);
+	const [isLoadingApods, setisLoadingApods] = useState(true);
+
+	// const nasaApiKey = process.env.REACT_APP_NASA_API_KEY;
+	const count = 10;
+
+	useEffect(() => {
+		fetch(`https://api.nasa.gov/planetary/apod?count=${count}&api_key=${process.env.REACT_APP_NASA_API_KEY}`)
+		.then((response) => response.json())
+		.then((data) => setApods([...data]))
+		.then(setisLoadingApods(false));
+	}, []);
+
+	console.log(apods);
+
+	const apodsList = apods
+	.map(apod => (
+			<ContentTile
+				key={apod.id + nanoid()}
+				id={apod.id}
+				title={apod.title}
+				src={apod.url}
+				description={apod.explanation}
+			/>
+		)
+	);
+
+	const loadedContent = (
+		<div className='main-content'>
+			{apodsList}
+		</div>
+	);
+
+	const loadingContent = (
+		<div class='loading-content'>
+			<p>Loading...</p>
+		</div>
+	);
+
+
 	return (
 		<div className="App">
-			{/* <header className="App-header">
-				
-			</header> */}
-			<main>
-				<MainTitle />
-				<ContentTile />
-			</main>
+			<h1>Spacestagram!</h1>
+			<p>Brought to you by NASA's image API.</p> 
+			{isLoadingApods ? loadingContent : loadedContent};
 		</div>
 	);
 }
