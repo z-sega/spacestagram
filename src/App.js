@@ -3,14 +3,19 @@ import React, { useState, useEffect } from 'react';
 import ContentTile from './components/ContentTile';
 import { nanoid } from 'nanoid';
 import TOKEN from './config.js';
-import { configure } from '@testing-library/react';
+
 
 function App() {
 
 	const [apods, setApods] = useState([]);
 	const [isLoadingApods, setisLoadingApods] = useState(true);
 
-	const nasaApiKey = process.env.REACT_APP_NASA_API_KEY ? process.env.REACT_APP_NASA_API_KEY : TOKEN;
+	var nasaApiKey = process.env.REACT_APP_NASA_API_KEY;
+	console.log(nasaApiKey);
+
+	if (!nasaApiKey) {
+		nasaApiKey = TOKEN;
+	}
 	const count = 10;
 
 	useEffect(() => {

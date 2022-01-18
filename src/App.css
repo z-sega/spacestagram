@@ -51,9 +51,18 @@ html {
   font-family: 'Press Start 2P', cursive;
 }
 
-.header p a {
 
+.header p a {
+  color: orange;
+  text-decoration: underline green;
 }
+
+.header p a:hover {
+  color: blue;
+  text-decoration: none;
+  background-color: lightgreen;
+}
+
 
 div.header {
   border: 2px dashed blue;
