@@ -7,16 +7,20 @@ const Image = styled.img`
     border: 2px dashed orange;
     margin-bottom: 10px;
 
-    // max-width:100%;
-    // height:auto;
-    // width: 720px;
-    // height: 720px;
+    :hover {
+        border: 4px dashed #1363EC;
+    }
 `;
 
 const Title = styled.h3`
     // Content
     font-weight: bold;
 
+    // Decorations
+    :hover {
+        text-decoration: underline #1363EC;
+    }
+    
     // Layout
     padding: 10px;
     border: 2px dashed orange;
@@ -25,19 +29,21 @@ const Title = styled.h3`
 `;
 
 const Description = styled.p`
+    font-family: 'Roboto Slab', serif;
     border: 2px dashed orange;
     margin-top: 5px;
     margin-bottom: 10px;
     text-align: left;
-
     padding: 10px;
 `;
 
 const Date = styled.p`
+    font-weight: bold;
     border: 2px dashed orange;
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: left;
+
 
     padding: 10px;
 `;
@@ -74,11 +80,21 @@ export default function ContentTile(props) {
     // var result = format(props.date, 'MM/dd/yyyy')
     // console.log(result)
 
+    // function linkify(text) {
+    //     var urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    //     return text.replace(urlRegex, function(url) {
+    //         return '<a href="' + url + '">' + url + '</a>';
+    //     });
+    // }
+
+    // const description = linkify(props.description);
+
     return (
         <Wrapper className='content-tile'>
             <Image src={props.src} />
             <Title>{props.title}</Title>
             <Description>{props.description}</Description>
+            {/* <Description>{description}</Description> */}
             <Date>{props.date}</Date>
             <LikeToggle primary>Love!</LikeToggle>
             {/* <LikeButton /> */}

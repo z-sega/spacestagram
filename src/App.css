@@ -38,7 +38,7 @@
 }
 /* Overall Styling */
 html {
-  border: 2px dashed red;
+  /* border: 2px dashed red; */
 
   font-family: open-sans, sans-serif;
   font-style: normal;
@@ -48,7 +48,11 @@ html {
 /* Header */
 .header h1 {
   font-weight: bold;
-  
+  font-family: 'Press Start 2P', cursive;
+}
+
+.header p a {
+
 }
 
 div.header {
@@ -57,10 +61,26 @@ div.header {
   margin-bottom: 20px;
 }
 
-/* Content Tile Styling *
+/* Content Tile Styling */
 
 /* Main Content Styling */
 .main-content {
   display: flex;
   flex-wrap: wrap;
+}
+
+div.loading-content {
+  font-size: 100px;
+  border: 2px dashed orange;
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* Footer Styling */
+div.footer p {
+  border: 2px dashed blue;
+  padding: 20px;
+}
+
+div.footer p:hover{
+  border: 4px dashed blue;
 }

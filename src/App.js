@@ -2,17 +2,19 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import ContentTile from './components/ContentTile';
 import { nanoid } from 'nanoid';
+import TOKEN from './config.js';
+import { configure } from '@testing-library/react';
 
 function App() {
 
 	const [apods, setApods] = useState([]);
 	const [isLoadingApods, setisLoadingApods] = useState(true);
 
-	// const nasaApiKey = process.env.REACT_APP_NASA_API_KEY;
+	const nasaApiKey = process.env.REACT_APP_NASA_API_KEY ? process.env.REACT_APP_NASA_API_KEY : TOKEN;
 	const count = 10;
 
 	useEffect(() => {
-		fetch(`https://api.nasa.gov/planetary/apod?count=${count}&api_key=${process.env.REACT_APP_NASA_API_KEY}`)
+		fetch(`https://api.nasa.gov/planetary/apod?count=${count}&api_key=${nasaApiKey}`)
 		.then((response) => response.json())
 		.then((data) => setApods([...data]))
 		.then(setisLoadingApods(false))
@@ -48,9 +50,12 @@ function App() {
 		<div className="App">
 			<div className='header'>
 				<h1>Spacestagram!</h1>
-				<p>Brought to you by NASA's image API.</p> 
+				<p>Brought to you by <a href='https://api.nasa.gov'>NASA's image API.</a></p> 
 			</div>
-			{isLoadingApods ? loadingContent : loadedContent};
+			{isLoadingApods ? loadingContent : loadedContent}
+			<div className='footer'>
+				<p>Created by Ayo Onipe.</p>
+			</div>
 		</div>
 	);
 }
