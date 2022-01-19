@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 // import './ContentTile.css';
-// import LikeButton from './LikeButton';
+import LikeButton from './LikeButton';
 
 const Image = styled.img`
     border: 2px dashed orange;
@@ -40,13 +40,14 @@ const Description = styled.p`
 
 const Date = styled.p`
     font-weight: bold;
-    border: 2px dashed orange;
+    // border: 2px dashed orange;
     margin-top: 5px;
     margin-bottom: 5px;
-    text-align: left;
+    text-align: right;
 
 
     padding: 10px;
+    flex: 5;
 `;
 
 const LikeToggle = styled.button`
@@ -59,6 +60,12 @@ const LikeToggle = styled.button`
     width: 150px;
     padding: 10px;
     border: 2px dashed orange;
+`;
+
+const ButtonAndDate = styled.div`
+    border: 2px dashed orange;
+    display: flex;
+
 `;
 
 const Wrapper = styled.div`
@@ -95,10 +102,11 @@ export default function ContentTile(props) {
             <Image src={props.src} />
             <Title>{props.title}</Title>
             <Description>{props.description}</Description>
-            {/* <Description>{description}</Description> */}
-            <Date>{props.date}</Date>
-            <LikeToggle primary>Love!</LikeToggle>
-            {/* <LikeButton /> */}
+    
+            <ButtonAndDate>
+                <LikeButton />
+                <Date>{props.date}</Date>
+            </ButtonAndDate>
         </Wrapper>
     );
 }

@@ -102,6 +102,17 @@ div.loading-content {
   font-family: 'Press Start 2P', cursive;
 }
 
+/* Like button */
+div.likebutton {
+  text-align: center;
+  padding: 5px;
+  border-right: 2px dashed orange;
+  width: 50px;
+  font-size: 30px;
+
+  flex: 1 30px;
+}
+
 /* Footer Styling */
 div.footer p {
   border: 2px dashed blue;
