@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Image = styled.img`
     border: 2px dashed orange;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
     :hover {
         border: 4px dashed #1363EC;
@@ -25,6 +25,7 @@ const Title = styled.h3`
     padding: 10px;
     border: 2px dashed orange;
     margin-top: 5px;
+    margin-bottom: 5px;
     text-align: left;
 `;
 
@@ -32,7 +33,7 @@ const Description = styled.p`
     font-family: 'Roboto Slab', serif;
     border: 2px dashed orange;
     margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-align: left;
     padding: 10px;
 `;
@@ -40,8 +41,8 @@ const Description = styled.p`
 const Date = styled.p`
     font-weight: bold;
     border: 2px dashed orange;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     text-align: left;
 
 

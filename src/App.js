@@ -11,7 +11,6 @@ function App() {
 	const [isLoadingApods, setisLoadingApods] = useState(true);
 
 	var nasaApiKey = process.env.REACT_APP_NASA_API_KEY;
-	console.log(nasaApiKey);
 
 	if (!nasaApiKey) {
 		nasaApiKey = TOKEN;
