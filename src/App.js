@@ -45,6 +45,7 @@ function App() {
 				id={apod.id + nanoid()}
 				title={apod.title}
 				src={apod.url}
+				hdSrc={apod.hdurl}
 				description={apod.explanation}
 				date={apod.date}
 			/>

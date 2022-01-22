@@ -77,7 +77,7 @@ export default function ContentTile(props) {
     
     return (
         <Wrapper className='content-tile'>
-            <Image src={props.src} />
+            <a href={props.hdSrc} target='_blank'><Image src={props.src} /></a>
             <Title>{props.title}</Title>
             <Description>{props.description}</Description>
     
