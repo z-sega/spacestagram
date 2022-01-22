@@ -23,7 +23,7 @@ function App() {
 	const [filter, setFilter] = useState('All');
 	const [liked, setLiked] = useState(false);
 
-	const NASA_API_KEY = process.env.REACT_APP_NASA_API_KEY;
+	var NASA_API_KEY = process.env.REACT_APP_NASA_API_KEY;
 
 	if (!NASA_API_KEY) {
 		NASA_API_KEY = TOKEN;
