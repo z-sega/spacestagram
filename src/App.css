@@ -88,6 +88,37 @@ div.header {
   margin: 20px;
 }
 
+/* Filter Button Styling */
+div.filters {
+  display: flex;
+  justify-content: space-around;
+  height: 5em;
+  padding: 20px;
+}
+
+.toggle-btn {
+  flex: 1;
+  border: 2px dashed blue;
+  background-color: white;
+  font-size: 20px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.toggle-btn:hover {
+  background-color: lightgreen;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+
 /* Content Tile Styling */
 
 /* Main Content Styling */
