@@ -4,6 +4,7 @@ import ContentTile from './components/ContentTile';
 import FilterButton from './components/FilterButton';
 import { nanoid } from 'nanoid';
 import TOKEN from './config.js';
+import { parseWithOptions } from 'date-fns/fp';
 
 /* Note on FILTER_MAP & FILTER_NAME:
  * Defined outside App() because if not they would be recalculated
@@ -21,7 +22,6 @@ function App() {
 	const [apods, setApods] = useState([]);
 	const [isLoadingApods, setisLoadingApods] = useState(true);
 	const [filter, setFilter] = useState('All');
-	const [liked, setLiked] = useState(false);
 
 	var NASA_API_KEY = process.env.REACT_APP_NASA_API_KEY;
 
@@ -36,6 +36,7 @@ function App() {
 		.then((data) => setApods([...data]))
 		.then(setisLoadingApods(false))
 	}, []);
+
 
 	const apodsList = apods
 	.filter(FILTER_MAP[filter])
