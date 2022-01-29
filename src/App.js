@@ -4,7 +4,6 @@ import ContentTile from './components/ContentTile';
 import FilterButton from './components/FilterButton';
 import { nanoid } from 'nanoid';
 import TOKEN from './config.js';
-import { parseWithOptions } from 'date-fns/fp';
 
 /* Note on FILTER_MAP & FILTER_NAME:
  * Defined outside App() because if not they would be recalculated
@@ -37,18 +36,52 @@ function App() {
 		.then(setisLoadingApods(false))
 	}, []);
 
+	//
+
+
+	/* Add properties to apod objects */
+	for(let i = 0; i < apods.length; i++) {
+		apods[i].id = apods[i].key = nanoid();
+		apods[i].wasLiked = false;
+	};
+
+	// console.log(apods);
+	/* --- */
+
+	function checkApods() {
+		console.log("------");
+		for(let i = 0; i < apods.length; i++) {
+			console.log(apods[i]);
+		};
+		console.log("------");
+	}
+
+	function toggleLiked(id) {
+		console.log("insideToggledLiked")
+		console.log("id:" + id)
+		const updatedApods = apods.map(apod => {
+			if (id === apod.id) {
+				console.log("id:" + id)
+				return {...apod, wasLiked: !apod.wasLiked}
+			}
+			return apod;
+		});
+		setApods(updatedApods);
+		checkApods();
+	}
 
 	const apodsList = apods
 	.filter(FILTER_MAP[filter])
 	.map(apod => (
 			<ContentTile
-				key={apod.id + nanoid()}
-				id={apod.id + nanoid()}
+				key={apod.key}
+				id={apod.id}
 				title={apod.title}
 				src={apod.url}
 				hdSrc={apod.hdurl}
 				description={apod.explanation}
 				date={apod.date}
+				liked={toggleLiked}
 			/>
 		)
 	);

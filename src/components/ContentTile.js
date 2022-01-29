@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
 import styled from "styled-components";
 
 const Image = styled.img`
@@ -73,18 +72,19 @@ const Wrapper = styled.div`
 `;
 
 export default function ContentTile(props) {
-    
-    const [liked, setLiked] = useState(false);
-    
+
+    const [isLikedIcon, setIsLikedIcon] = useState(false);
+
     return (
         <Wrapper className='content-tile'>
-            <a href={props.hdSrc} target='_blank'><Image src={props.src} /></a>
+            <a href={props.hdSrc} target='_blank' rel='noreferrer'><Image src={props.src} /></a>
             <Title>{props.title}</Title>
             <Description>{props.description}</Description>
     
             <ButtonAndDate>
-                <div className='likebutton' onClick={() => setLiked(!liked)} >
-                    {liked ? '😍':'🙂' }
+                <div className='likebutton' onClick={() => setIsLikedIcon(!isLikedIcon)} >
+                    {/* {props.wasLiked ? '😍' : '🙂' } */}
+                    {isLikedIcon ? '😍' : '🙂' }
                 </div>
                 <Date>{props.date}</Date>
             </ButtonAndDate>
