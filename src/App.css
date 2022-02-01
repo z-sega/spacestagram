@@ -129,8 +129,10 @@ div.filters {
 
 div.loading-content {
   font-size: 100px;
-  border: 2px dashed orange;
+  /* border: 2px dashed orange; */
   font-family: 'Press Start 2P', cursive;
+  padding: 20px;
+  margin: 20px;
 }
 
 /* Like button */

@@ -32,11 +32,9 @@ function App() {
 	useEffect(() => {
 		fetch(`https://api.nasa.gov/planetary/apod?count=${count}&api_key=${NASA_API_KEY}`)
 		.then((response) => response.json())
-		.then((data) => setApods([...data]))
+		.then((data) => setApods([...data])) 
 		.then(setisLoadingApods(false))
 	}, []);
-
-	//
 
 
 	/* Add properties to apod objects */
@@ -45,8 +43,6 @@ function App() {
 		apods[i].wasLiked = false;
 	};
 
-	// console.log(apods);
-	/* --- */
 
 	function checkApods() {
 		console.log("------");
@@ -119,7 +115,7 @@ function App() {
 			<div className='filters btn-group'>
 				{filterList}
 			</div>
-			{isLoadingApods ? loadingContent : loadedContent}
+			{(apods.length > 1) ?  loadedContent : loadingContent}
 			<div className='footer'>
 				<p>Created by Ayo Onipe.</p>
 			</div>
